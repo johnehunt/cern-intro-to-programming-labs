@@ -21,24 +21,34 @@ def print_end_of_game_message():
 
 print_welcome_message()
 
-# Obtain their initial guess
-guess = get_user_guess('Please guess a number between 1 and 10: ')
-while number_to_guess != guess:
-    print('Sorry wrong number')
+# Obtain the users' guess
+keep_playing = True
+while keep_playing:
+
+    # Obtain their next guess and increment number of attempts
+    guess = get_user_guess('Please guess a number between 1 and 10: ')
 
     # Check to see they have not exceeded the maximum
     # number of attempts if so break out of loop otherwise
     # give the user come feedback
-    if count_number_of_tries == 4:
+    if guess == -1:
+        # Cheat mode
+        print(f'Number to guess is {number_to_guess}')
+        continue
+
+    elif guess == number_to_guess:
         break
     elif guess < number_to_guess:
+        print('Sorry wrong number')
         print('Your guess was lower than the number')
     else:
+        print('Sorry wrong number')
         print('Your guess was higher than the number')
 
-    # Obtain their next guess and increment number of attempts
-    guess = get_user_guess('Please guess again: ')
     count_number_of_tries += 1
+    if count_number_of_tries > 4 and keep_playing:
+        print('No guesses left')
+        keep_playing = False
 
 # Check to see if they did guess the correct number
 if number_to_guess == guess:
