@@ -35,23 +35,22 @@ while keep_playing:
     if guess == -1:
         # Cheat mode
         print(f'Number to guess is {number_to_guess}')
-        continue
-
-    history.append(guess)
-
-    if guess == number_to_guess:
-        break
-    elif guess < number_to_guess:
-        print('Sorry wrong number')
-        print('Your guess was lower than the number')
     else:
-        print('Sorry wrong number')
-        print('Your guess was higher than the number')
+        history.append(guess)
 
-    count_number_of_tries += 1
-    if count_number_of_tries > 4 and keep_playing:
-        print('No guesses left')
-        keep_playing = False
+        if guess == number_to_guess:
+            keep_playing = False
+        elif guess < number_to_guess:
+            print('Sorry wrong number')
+            print('Your guess was lower than the number')
+        else:
+            print('Sorry wrong number')
+            print('Your guess was higher than the number')
+
+        count_number_of_tries += 1
+        if count_number_of_tries > 4 and keep_playing:
+            print('No guesses left')
+            keep_playing = False
 
 # Check to see if they did guess the correct number
 if number_to_guess == guess:
