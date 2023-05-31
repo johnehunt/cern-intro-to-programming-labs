@@ -1,7 +1,10 @@
 import random
 
+MAX_VALUE = 5
+MIN_VALUE = 1
+
 # Initialise the number to be guessed
-number_to_guess = random.randint(1, 10)
+number_to_guess = random.randint(MIN_VALUE, MAX_VALUE)
 
 # Initialise the number of tries the player has made
 count_number_of_tries = 1
@@ -26,7 +29,7 @@ keep_playing = True
 while keep_playing:
 
     # Obtain their next guess and increment number of attempts
-    guess = get_user_guess('Please guess a number between 1 and 10: ')
+    guess = get_user_guess(f'Please guess a number between {MIN_VALUE} and {MAX_VALUE}: ')
 
     # Check to see they have not exceeded the maximum
     # number of attempts if so break out of loop otherwise
