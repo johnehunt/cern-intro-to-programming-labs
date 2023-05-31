@@ -13,10 +13,10 @@ elif input_number.isnumeric():
         print('1! factorial is 1')
     else:
         # Loop element
-        factorial = 1
-        for i in range(1, num + 1):
-            factorial = factorial * i
-        print(f'{input_number}! factorial is {factorial}')
+        factorial_result = 1
+        for i in range(num, 1, -1):
+            factorial_result = factorial_result * i
+        print(f'{input_number}! factorial is {factorial_result}')
 
 else:
     print('Not an integer number')
