@@ -1,28 +1,29 @@
 import csv
 
-transactions = (
-        ('deposit', 10.05),
-        ('deposit', 23.45),
-        ('withdraw', 12.33),
-        ('withdraw', 5.00)
+temperatures = (
+        (10.05, '04/05/23', '12:00', 'Celsius'),
+        (11.00, '04/05/23', '13:00', 'Celsius'),
+        (12.34, '04/05/23', '14:00', 'Celsius'),
+        (11.95, '04/05/23', '15:00', 'Celsius'),
+        (9.25, '04/05/23', '16:00', 'Celsius'),
 )
 
 
-def write_account_transaction_to_csv(filename, data):
-    print('Starting write of dict CSV example')
-    with open(filename, 'w', newline='') as csvfile:
-        fieldnames = ['transaction_type', 'amount']
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        writer.writeheader()
-        # Write out the transactions
-        for transaction in data:
-            writer.writerow({'transaction_type': transaction[0],
-                             'amount': transaction[1]})
+def write_to_csv(filename, data):
+    print('Starting write of CSV example')
+    try:
+        with open(filename, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+            # Write out the transactions
+            for item in data:
+                writer.writerow(item)
+    except Exception as exp:
+        print(exp)
 
 
 print('Starting')
 
-print('Writing Account Transactions')
-write_account_transaction_to_csv('accounts.csv', transactions)
+print('Writing Temperature Data')
+write_to_csv('temperatures.csv', temperatures)
 
 print('Done')
