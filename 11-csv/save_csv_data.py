@@ -11,14 +11,11 @@ temperatures = (
 
 def write_to_csv(filename, data):
     print('Starting write of CSV example')
-    try:
-        with open(filename, 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            # Write out the transactions
-            for item in data:
-                writer.writerow(item)
-    except Exception as exp:
-        print(exp)
+    with open(filename, 'w') as csvfile:
+        writer = csv.writer(csvfile)
+        # Write out the transactions
+        for item in data:
+            writer.writerow(item)
 
 
 print('Starting')
