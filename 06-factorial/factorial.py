@@ -14,7 +14,7 @@ elif input_number.isnumeric():
     else:
         # Loop element
         factorial_result = 1
-        for i in range(num, 1, -1):
+        for i in range(2, num + 1):
             factorial_result = factorial_result * i
         print(f'{input_number}! factorial is {factorial_result}')
 
