@@ -1,10 +1,8 @@
-flights = {}
-
-flights['London'] = ('EY123', 'Monday', '12:00', 'Geneva')
-flights['Geneva'] = ('AI454', 'Tuesday', '13:00', 'London')
-flights['Dublin'] = ('BA987', 'Wednesday', '14:00', 'Dublin')
-flights['Seville'] = ('SA527', 'Thursday', '11:00', 'Cardiff')
-flights['Cardiff'] = ('WA129', 'Friday', '10:00', 'Dublin')
+flights = {'London': ('EY123', 'Monday', '12:00', 'Geneva'),
+           'Geneva': ('AI454', 'Tuesday', '13:00', 'London'),
+           'Dublin': ('BA987', 'Wednesday', '14:00', 'Dublin'),
+           'Seville': ('SA527', 'Thursday', '11:00', 'Cardiff'),
+           'Cardiff': ('WA129', 'Friday', '10:00', 'Dublin')}
 
 print(f'Keys: {flights.keys()}')
 print(f'values: {flights.values()}')
